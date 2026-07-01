@@ -141,6 +141,8 @@ app.post('/api/sell', async (req, res) => {
     }
 });
 
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-    console.log(`Backend server engine running successfully on http://localhost:${PORT}`);
+  console.log(`Backend room server running live on port ${PORT}`);
 });
+
