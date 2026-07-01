@@ -6,12 +6,7 @@ const app = express();
 
 // FETCH THE DYNAMIC CLOUD PORT ASSIGNED BY RENDER OR FALLBACK TO 5000 LOCAL
 // FORCED PORT OVERRIDE TO SHATTER CLOUD CACHE LOCKS
-const port = process.env.PORT || 8080;
 
-app.listen(port, "0.0.0.0", () => {
-  console.log(`Backend server engine listening cleanly on port ${port}`);
-}
-);
 
 // OPEN FIREWALL TO PERMIT VERCEL HANDSHAKES LIVE
 app.use(cors({
@@ -149,8 +144,9 @@ app.post('/api/sell', async (req, res) => {
     }
 });
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Backend room server running live on port ${PORT}`);
+const port = process.env.PORT || 8080;
+
+app.listen(port, "0.0.0.0", () => {
+  console.log(`Backend server engine listening cleanly on port ${port}`);
 });
 
