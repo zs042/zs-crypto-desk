@@ -5,12 +5,12 @@ const mongoose = require('mongoose');
 const app = express();
 const PORT = 5000;
 
-app.use(cors());
-app.use(express.json());
-
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/cryptoDB')
-    .then(() => console.log("Database connected successfully! Ready to store records permanently."))
-    .catch((err) => console.log("Database connection paused:", err.message));
+// OPEN FIREWALL TO PERMIT VERCEL HANDSHAKES LIVE
+app.use(cors({
+  origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type']
+}));
 
 // WALLET SCHEMA
 const AccountSchema = new mongoose.Schema({
