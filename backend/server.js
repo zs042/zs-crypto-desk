@@ -3,7 +3,10 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 
 const app = express();
-const PORT = 5000;
+
+app.listen(process.env.PORT || 5000, () => {
+  console.log("Backend room server running live on dynamic cloud port configuration nodes");
+});
 
 // OPEN FIREWALL TO PERMIT VERCEL HANDSHAKES LIVE
 app.use(cors({
