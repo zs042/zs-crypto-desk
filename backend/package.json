@@ -1,5 +1,5 @@
 {
-  "name": "zs-app-backend",
+  "name": "zs-backend",
   "version": "1.0.0",
   "description": "Crypto Trading Simulator Backend Server Core",
   "main": "server.js",
