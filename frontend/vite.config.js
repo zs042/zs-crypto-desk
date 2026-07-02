@@ -7,4 +7,8 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+  build: {
+    // ADJUST THE CHUNK LIMIT THRESHOLD TO 1000 KB TO CLEAR THE CHARTING LIBRARY WARNING
+    chunkSizeWarningLimit: 1000,
+  },
 });
