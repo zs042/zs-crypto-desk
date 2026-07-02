@@ -177,11 +177,11 @@ export default function App() {
                                                 className="bg-slate-950 border border-slate-800 rounded-xl px-3 py-1.5 text-sm font-mono focus:outline-none focus:border-indigo-500 text-white w-full"
                                                 step="0.01"min="0"
                                                 />
-                                                <buttononClick={() => handleTradeExecution(coin.id, 'buy', coin.current_price)}
+                                                <button onClick={() => handleTradeExecution(coin.id, 'buy', coin.current_price)}
                                                 className="w-full bg-emerald-500 hover:bg-emerald-600 active:scale-95 text-slate-950 
                                                 font-bold py-2 rounded-xl text-sm transition-all shadow-lg shadow-emerald-500/10 cursor-pointer">
                                                 Buy Asset
-                                                <buttononClick={() => handleTradeExecution(coin.id, 'sell', coin.current_price)}
+                                                <button onClick={() => handleTradeExecution(coin.id, 'buy', coin.current_price)}
                                                                                         <tr key={tx._id || index} className="text-slate-300 hover:bg-slate-800/30 transition-colors">
                                             <td className="py-3 text-slate-500">{tx.timestamp ? new Date(tx.timestamp).toLocaleTimeString() : 'Recent'}</td>
                                             <td className="py-3 font-bold text-white uppercase">{tx.coinId}</td>
