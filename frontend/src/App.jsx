@@ -16,7 +16,6 @@ export default function App() {
     // LIVE RENDER PRODUCTION SERVER GATEWAY ROUTE
     const BACKEND_URL = 'https://zs-backend-1nbr.onrender.com';
 
-
     const fetchDatabaseAccount = () => {
         fetch(`${BACKEND_URL}/api/account`)
             .then((res) => res.json())
@@ -175,6 +174,7 @@ export default function App() {
                                                 value={amounts[coin.id] || ''} 
                                                 onChange={(e) => handleAmountChange(coin.id, e.target.value)}
                                                 className="bg-slate-950 border border-slate-800 rounded-xl px-3 py-1.5 text-sm font-mono focus:outline-none focus:border-indigo-500 text-white w-full"
+
                                                 step="0.01"min="0"
                                                 />
                                                 <button onClick={() => handleTradeExecution(coin.id, 'buy', coin.current_price)}
