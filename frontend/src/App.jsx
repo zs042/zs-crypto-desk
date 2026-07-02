@@ -38,6 +38,46 @@ export default function App() {
         fetchDatabaseAccount();
         fetchTransactionLogs();
 
+        // NEW ACTION INTERACTION: TRANSMIT TRANSACTION BLOCKS TO RENDER SERVER
+const handleTradeExecution = async (assetSymbol, actionType, quantityAmount) => {
+  if (!quantityAmount || parseFloat(quantityAmount) <= 0) {
+    alert("Please input a valid trade quantity amount greater than 0");
+    return;
+  }
+
+  try {
+    const transactionPayload = {
+      symbol: assetSymbol,
+      type: actionType,
+      amount: parseFloat(quantityAmount)
+    };
+
+    const serverResponse = await fetch('https://onrender.com', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(transactionPayload)
+    });
+
+    if (!serverResponse.ok) {
+      const errorData = await serverResponse.json();
+      throw new Error(errorData.message || 'Server transaction pipeline rejection');
+    }
+
+    const updatedAccountRecords = await serverResponse.json();
+    
+    // REFRESH BALANCE PANELS INSTANTLY ON SUCCESSFUL CLEARANCE
+    alert(`Successfully completed ${actionType} order for ${quantityAmount} ${assetSymbol}!`);
+    window.location.reload(); // Quick refresh to update numbers across all cards
+    
+  } catch (networkError) {
+    console.error("Execution Failure:", networkError);
+    alert(`Transaction Failed: ${networkError.message}`);
+  }
+};
+
+
         // 2. Separate logic to fetch market price metrics
         const fetchMarketPrices = () => {
             const controller = new AbortController();
