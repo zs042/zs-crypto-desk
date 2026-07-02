@@ -14,7 +14,8 @@ export default function App() {
     const ethHistory = [{ p: 3210 }, { p: 3190 }, { p: 3230 }, { p: 3180 }, { p: 3140 }, { p: 3160 }, { p: 3120 }, { p: 3150 }];
 
     // LIVE RENDER PRODUCTION SERVER GATEWAY ROUTE
-    const BACKEND_URL = 'https://zs-backend-1nbr.onrender.com';
+   const BACKEND_URL = 'https://onrender.com';
+
 
     const fetchDatabaseAccount = () => {
         fetch(`${BACKEND_URL}/api/account`)
