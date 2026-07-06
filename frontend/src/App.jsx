@@ -179,7 +179,7 @@ export default function App() {
                                             />
                                         </div>
                                         <div className="grid grid-cols-2 gap-3">
-                                            <button 
+                                              <button 
                                                 onClick={() => handleTradeExecution(coin.id, 'buy', coin.current_price)}
                                                 className="w-full bg-emerald-500 hover:bg-emerald-600 active:scale-95 text-slate-950 font-bold py-2 rounded-xl text-sm transition-all shadow-lg shadow-emerald-500/10 cursor-pointer"
                                             >
