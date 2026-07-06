@@ -13,7 +13,7 @@ export default function App() {
     const btcHistory = [{ p: 91200 }, { p: 91500 }, { p: 90800 }, { p: 91900 }, { p: 92100 }, { p: 91700 }, { p: 92300 }, { p: 92500 }];
     const ethHistory = [{ p: 3210 }, { p: 3190 }, { p: 3230 }, { p: 3180 }, { p: 3140 }, { p: 3160 }, { p: 3120 }, { p: 3150 }];
 
-    // LIVE RENDER PRODUCTION SERVER GATEWAY ROUTE
+    // LIVE SECURE PRODUCTION ROUTING TARGET
     const BACKEND_URL = 'https://onrender.com';
 
     const fetchDatabaseAccount = () => {
@@ -26,17 +26,16 @@ export default function App() {
                     setEthereumOwned(data.ethereumOwned ?? 0);
                 }
             })
-            .catch((err) => console.error("Account balance link missing:", err));
+            .catch((err) => console.error("Account payload dropped:", err));
     };
 
     const fetchTransactionLogs = () => {
         fetch(`${BACKEND_URL}/api/transactions`)
             .then((res) => res.json())
             .then((logs) => { if (Array.isArray(logs)) setTransactions(logs); })
-            .catch((err) => console.error("Ledger connection logs missing:", err));
+            .catch((err) => console.error("Ledger pipeline dropped:", err));
     };
 
-    // TOP-LEVEL ACTION PIPELINE (UNFROZEN AND VISIBLE TO ALL BUTTONS!)
     const handleTradeExecution = async (coinId, actionType, pricePerCoin) => {
         const quantityAmount = parseFloat(amounts[coinId]);
         if (isNaN(quantityAmount) || quantityAmount <= 0) {
@@ -59,7 +58,7 @@ export default function App() {
 
             if (!serverResponse.ok) {
                 const errorData = await serverResponse.json();
-                throw new Error(errorData.message || 'Server transaction pipeline rejection');
+                throw new Error(errorData.message || 'Server network ledger rejection');
             }
 
             const data = await serverResponse.json();
@@ -68,13 +67,13 @@ export default function App() {
                 setBitcoinOwned(data.account.bitcoinOwned);
                 setEthereumOwned(data.account.ethereumOwned || 0);
                 fetchTransactionLogs();
-                alert(`Successfully executed ${actionType.toUpperCase()} order for ${quantityAmount} ${coinId.toUpperCase()}!`);
+                alert(`Successfully processed ${actionType.toUpperCase()} order for ${quantityAmount} ${coinId.toUpperCase()}!`);
             } else {
                 alert(data.message);
             }
         } catch (networkError) {
-            console.error("Execution Failure:", networkError);
-            alert(`Transaction Failed: ${networkError.message}`);
+            console.error("Execution Exception Blocked:", networkError);
+            alert(`Transaction Clearance Blocked: ${networkError.message}`);
         }
     };
 
@@ -94,7 +93,7 @@ export default function App() {
                         setCryptoData(data);
                         setLoading(false);
                     } else {
-                        throw new Error("API rate-limited");
+                        throw new Error("API Limit Threshold Breached");
                     }
                 })
                 .catch((error) => {
@@ -122,7 +121,7 @@ export default function App() {
             <div className="max-w-6xl mx-auto space-y-8">
                 <header className="flex justify-between items-center border-b border-slate-800 pb-6">
                     <div>
-                        <h1 className="text-3xl font-extrabold bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Zs Desk</h1>
+                        <h1 className="text-3xl font-extrabold bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">ApexTrader Crypto Desk</h1>
                         <p className="text-sm text-slate-400 mt-1">Institutional Simulation Node v2.0</p>
                     </div>
                 </header>
@@ -172,7 +171,7 @@ export default function App() {
                                             <input 
                                                 type="number" 
                                                 value={amounts[coin.id] || ''} 
-                                                                                               onChange={(e) => handleAmountChange(coin.id, e.target.value)}
+                                                onChange={(e) => handleAmountChange(coin.id, e.target.value)}
                                                 className="bg-slate-950 border border-slate-800 rounded-xl px-3 py-1.5 text-sm font-mono focus:outline-none focus:border-indigo-500 text-white w-full"
                                                 step="0.01"
                                                 min="0"
