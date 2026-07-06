@@ -122,7 +122,7 @@ export default function App() {
             <div className="max-w-6xl mx-auto space-y-8">
                 <header className="flex justify-between items-center border-b border-slate-800 pb-6">
                     <div>
-                        <h1 className="text-3xl font-extrabold bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">ApexTrader Crypto Desk</h1>
+                        <h1 className="text-3xl font-extrabold bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">Zs Desk</h1>
                         <p className="text-sm text-slate-400 mt-1">Institutional Simulation Node v2.0</p>
                     </div>
                 </header>
