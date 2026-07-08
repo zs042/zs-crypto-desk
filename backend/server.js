@@ -18,9 +18,11 @@ app.use(cors({
 // ================================
 // DATABASE CONNECTION
 // ================================
-const MONGODB_URI =
-    process.env.MONGODB_URI ||
-    'YOUR_MONGODB_CONNECTION_STRING_HERE';
+const MONGODB_URI = process.env.MONGODB_URI;
+
+mongoose.connect(MONGODB_URI)
+  .then(() => console.log("MongoDB Connected"))
+  .catch(err => console.error(err));
 
 mongoose.connect(MONGODB_URI)
 .then(() => {
