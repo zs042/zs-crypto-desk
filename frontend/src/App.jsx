@@ -168,26 +168,27 @@ export default function App() {
                                     <div className="space-y-3 pt-2">
                                         <div className="flex items-center space-x-2">
                                             <label className="text-xs font-bold text-slate-400 uppercase tracking-wider">Size:</label>
-                                             <input 
+                                            <input 
                                                 type="number" 
                                                 value={amounts[coin.id] || ''} 
                                                 onChange={(e) => handleAmountChange(coin.id, e.target.value)}
                                                 className="bg-slate-950 border border-slate-800 rounded-xl px-3 py-1.5 text-sm font-mono focus:outline-none focus:border-indigo-500 text-white w-full"
                                                 step="0.01"
                                                 min="0"
+
                                             />
 
                                         </div>
                                         <div className="grid grid-cols-2 gap-3">
                                               <button
                                                       onClick={() => handleTradeExecution(coin.id, 'buy', coin.current_price)}
-                                                      className="..."
+                                                      className="w-full bg-emerald-500 hover:bg-emerald-600 active:scale-95 t ext-slate-950 font-bold py-2 rounded-xl text-sm transition-allshadow-lg shadow-emerald-500/10 cursor-pointer"
                                                 >
                                                 Buy Asset
                                             
                                             <button
                                                 onClick={() => handleTradeExecution(coin.id, 'sell', coin.current_price)}
-                                                 className="..."
+                                                 className="w-full bg-slate-800 hover:bg-rose-500/20 hover:text-rose-400 border border-slate-700 active:scale-95 text-slate-300 font-bold py-2 rounded-xl text-sm transition-all cursor-pointe"
                                             >
                                                 Sell Asset
                                             </button>
