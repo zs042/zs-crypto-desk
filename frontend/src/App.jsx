@@ -185,7 +185,7 @@ export default function App() {
                                             </button>
                                             <button
                                                 onClick={() => handleTradeExecution(coin.id, 'sell', coin.current_price)}
-                                                className="w-full bg-slate-800 hover:bg-rose-500/20 hover:text-rose-400 border border-slate-700 active:scale-95 text-slate-300 font-bold py-2 rounded-xl text-sm transition-all cursor-pointer"
+                                                 className="..."
                                             >
                                                 Sell Asset
                                             </button>
