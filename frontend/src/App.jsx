@@ -180,14 +180,17 @@ export default function App() {
 
                                         </div>
                                         <div className="grid grid-cols-2 gap-3">
-                                              <button
-                                                      onClick={() => handleTradeExecution(coin.id, 'buy', coin.current_price)}
-                                                      className="w-full bg-emerald-500 hover:bg-emerald-600 active:scale-95 t ext-slate-950 font-bold py-2 rounded-xl text-sm transition-allshadow-lg shadow-emerald-500/10 cursor-pointer"
-                                                >
-                                                Buy Asset
-                                            
-                                            <button
-                                                onClick={() => handleTradeExecution(coin.id, 'sell', coin.current_price)}
-                                                 className="w-full bg-slate-800 hover:bg-rose-500/20 hover:text-rose-400 border border-slate-700 active:scale-95 text-slate-300 font-bold py-2 rounded-xl text-sm transition-all cursor-pointer"
-                                            >
-                                                Sell Asset
+  <button
+    onClick={() => handleTradeExecution(coin.id, 'buy', coin.current_price)}
+    className="w-full bg-emerald-500 hover:bg-emerald-600 active:scale-95 text-slate-950 font-bold py-2 rounded-xl text-sm transition-all shadow-lg shadow-emerald-500/10 cursor-pointer"
+  >
+    Buy Asset
+  </button>
+
+  <button
+    onClick={() => handleTradeExecution(coin.id, 'sell', coin.current_price)}
+    className="w-full bg-slate-800 hover:bg-rose-500/20 hover:text-rose-400 border border-slate-700 active:scale-95 text-slate-300 font-bold py-2 rounded-xl text-sm transition-all cursor-pointer"
+  >
+    Sell Asset
+  </button>
+</div>
