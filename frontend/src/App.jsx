@@ -182,8 +182,6 @@ export default function App() {
                                                       className="..."
                                                 >
                                                 Buy Asset
-                                     
-                                              </button>
                                             
                                             <button
                                                 onClick={() => handleTradeExecution(coin.id, 'sell', coin.current_price)}
