@@ -193,4 +193,19 @@ export default function App() {
   >
     Sell Asset
   </button>
+                                            
 </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    )}
+                </section>
+
+                {/* Transactions section (optional) */}
+                {/* Add your transaction history here */}
+
+            </div>
+        </div>
+    );
+}
