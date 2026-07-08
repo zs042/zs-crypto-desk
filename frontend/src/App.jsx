@@ -168,13 +168,15 @@ export default function App() {
                                     <div className="space-y-3 pt-2">
                                         <div className="flex items-center space-x-2">
                                             <label className="text-xs font-bold text-slate-400 uppercase tracking-wider">Size:</label>
-                                            <input
-                                                  type="number"
-                                                  value={...}
-                                                  onChange={...}
-                                                  step="0.01"
-                                                  min="0"
+                                             <input 
+                                                type="number" 
+                                                value={amounts[coin.id] || ''} 
+                                                onChange={(e) => handleAmountChange(coin.id, e.target.value)}
+                                                className="bg-slate-950 border border-slate-800 rounded-xl px-3 py-1.5 text-sm font-mono focus:outline-none focus:border-indigo-500 text-white w-full"
+                                                step="0.01"
+                                                min="0"
                                             />
+
                                         </div>
                                         <div className="grid grid-cols-2 gap-3">
                                               <button
