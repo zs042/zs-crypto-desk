@@ -36,7 +36,7 @@ export default function App() {
             .catch((err) => console.error("Ledger pipeline dropped:", err));
     };
 
-    const handleTradeExecution = async (coinId, actionType, pricePerCoin) => {
+    const serverResponse = await fetch(`${BACKEND_URL}/api/${actionType}`, {
         const quantityAmount = parseFloat(amounts[coinId]);
         if (isNaN(quantityAmount) || quantityAmount <= 0) {
             alert("Please input a valid trade quantity amount greater than 0");
