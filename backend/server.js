@@ -73,16 +73,16 @@ async function initializeAccount() {
 // ================================
 const MONGODB_URI = process.env.MONGODB_URI;
 
+console.log("MONGODB_URI:", MONGODB_URI);
+
 mongoose.connect(MONGODB_URI)
     .then(() => {
-        console.log('✅ MongoDB Network Node Connected Cleanly Across Clusters');
+        console.log("✅ MongoDB connected");
         initializeAccount();
     })
     .catch((err) => {
-        console.error('❌ MongoDB Cloud Network Door Handshake Failed');
-        console.error(err);
+        console.error("❌ MongoDB connection failed:", err);
     });
-
 // ================================
 // ROUTING APIS
 // ================================
