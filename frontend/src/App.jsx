@@ -14,7 +14,7 @@ export default function App() {
     const ethHistory = [{ p: 3210 }, { p: 3190 }, { p: 3230 }, { p: 3180 }, { p: 3140 }, { p: 3160 }, { p: 3120 }, { p: 3150 }];
 
     // LIVE SECURE PRODUCTION ROUTING TARGET
-    const BACKEND_URL = 'https://zs-app.onrender.com';
+    const BACKEND_URL = 'https://zs-backend-1nbr.onrender.com';
 
     const fetchDatabaseAccount = () => {
         fetch(`${BACKEND_URL}/api/account`)
@@ -85,7 +85,10 @@ export default function App() {
             const controller = new AbortController();
             const timeoutId = setTimeout(() => controller.abort(), 3000);
 
-            fetch('https://coingecko.com', { signal: controller.signal })
+            fetch(
+  'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin,ethereum',
+  { signal: controller.signal }
+)
                 .then((response) => response.json())
                 .then((data) => {
                     clearTimeout(timeoutId);
